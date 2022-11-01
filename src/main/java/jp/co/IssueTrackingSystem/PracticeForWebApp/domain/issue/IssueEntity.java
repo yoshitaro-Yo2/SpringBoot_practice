@@ -5,7 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class issueEntity {
+public class IssueEntity {
     private long id;
     private String summary;
     private String description;
