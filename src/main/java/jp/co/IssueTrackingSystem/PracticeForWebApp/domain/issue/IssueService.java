@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class IssueService {
     public List<IssueEntity> findAllIssues() {
         var issueList = List.of(
