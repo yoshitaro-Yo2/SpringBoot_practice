@@ -25,5 +25,12 @@
             <a href="./list.html" th:href="@{/issues}" class="btn btn-secondary">キャンセル</a>
         </div>
     </form>
+    <script>
+        $(function () {
+            $('form').submit(function () {
+                $(this).find(':submit').prop('disabled', 'true');
+            });
+        });
+    </script>
 </body>
 </html>
