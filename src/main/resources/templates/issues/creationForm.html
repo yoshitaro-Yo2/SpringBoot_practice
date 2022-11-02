@@ -28,7 +28,7 @@
     <script>
         $(function () {
             $('form').submit(function () {
-                $(this).find(':submit').prop('disabled', 'true');
+                $(this).find('button[type="submit"]').prop('disabled', 'true');
             });
         });
     </script>
