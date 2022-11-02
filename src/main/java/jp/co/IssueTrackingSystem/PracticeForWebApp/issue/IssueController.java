@@ -31,7 +31,7 @@ public class IssueController {
 
     @PostMapping
     public String Create(IssueForm form, Model model){
-        // TODO データの永続化
+        issueService.create(form.getSummary(), form.getDescription());
         return showList(model); // TODO リロードボタン対策必須
     }
 }
