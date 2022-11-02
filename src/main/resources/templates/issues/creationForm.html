@@ -6,14 +6,15 @@
 </head>
 <body>
     <h1>課題作成</h1>
-    <form action="#" th:action="@{/issues}" method="post">
+    <form action="#" th:action="@{/issues}" method="post" th:object="${issueForm}">
         <div>
             <label for="summeryInput">概要</label>
-            <input type="text" id="summeryInput">
+            <!-- * は選択変数式という。選択したオブジェクトに対して、フィールドをマッピングする。選択は th:object で設定される -->
+            <input type="text" id="summeryInput" th:field="*{summary}">
         </div>
         <div>
             <label for="descriptionInput">説明</label>
-            <textarea id="descriptionInput" row="10"></textarea>
+            <textarea id="descriptionInput" row="10" th:field="*{description}"></textarea>
         </div>
         <div>
             <button type="submit">作成</button>
