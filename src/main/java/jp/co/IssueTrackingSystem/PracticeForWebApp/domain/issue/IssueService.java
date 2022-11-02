@@ -1,17 +1,20 @@
 package jp.co.IssueTrackingSystem.PracticeForWebApp.domain.issue;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// @RequiredArgsConstructor final がついてる初期化されていないフィールドを
+// 初期化するコンストラクタを自動で生成、インジェクションの受け口となりフィールド
 @Service
+@RequiredArgsConstructor
 public class IssueService {
+
+    // final → 初期化時に一度だけ代入されるのみで、再代入を禁止
+    private final IssueRepository issueRepository;
+
     public List<IssueEntity> findAllIssues() {
-        var issueList = List.of(
-                new IssueEntity(1, "概要1", "説明1"),
-                new IssueEntity(2, "概要2", "説明2"),
-                new IssueEntity(3, "概要3", "説明3")
-        );
-        return issueList;
+        return issueRepository.findAllIssues();
     }
 }
