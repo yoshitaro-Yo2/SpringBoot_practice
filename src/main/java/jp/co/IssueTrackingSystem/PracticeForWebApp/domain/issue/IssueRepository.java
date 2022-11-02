@@ -16,4 +16,7 @@ public interface IssueRepository {
     // Mybatis では引数の値を使用したい場合、#{} で指定する
     @Insert("insert into issues (summary, description) values (#{summary}, #{description})")
     void insert(String summary, String description);
+
+    @Select("select * from issues where id = #{issueId}")
+    IssueEntity findById(long issueId);
 }
