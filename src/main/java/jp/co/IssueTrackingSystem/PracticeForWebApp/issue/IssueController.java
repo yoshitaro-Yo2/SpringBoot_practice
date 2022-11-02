@@ -30,7 +30,7 @@ public class IssueController {
     }
 
     @PostMapping
-    public String Create(@Validated IssueForm form, BindingResult bindingResult, Model model) {
+    public String create(@Validated IssueForm form, BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()) {
             return showCreationForm(form);
         }
@@ -43,6 +43,13 @@ public class IssueController {
     public String showDetail(@PathVariable("issueId") long issueId, Model model) {
         model.addAttribute("issue", issueService.findById(issueId));
         return "issues/detail";
+    }
+
+    @DeleteMapping("delete/{issueId}")
+    public String delete(@PathVariable("issueId") long issueId) {
+
+        issueService.delete(issueId);
+        return "redirect:/issues";
     }
 
 }

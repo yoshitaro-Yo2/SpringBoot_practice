@@ -1,6 +1,5 @@
 package jp.co.IssueTrackingSystem.PracticeForWebApp.domain.issue;
 
-import jp.co.IssueTrackingSystem.PracticeForWebApp.issue.IssueForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,5 +25,10 @@ public class IssueService {
 
     public IssueEntity findById(long issueId) {
         return issueRepository.findById(issueId);
+    }
+
+    @Transactional
+    public void delete(long issueId) {
+        issueRepository.delete(issueId);
     }
 }
