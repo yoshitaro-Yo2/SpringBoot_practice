@@ -3,6 +3,7 @@ package jp.co.IssueTrackingSystem.PracticeForWebApp.domain.issue;
 import jp.co.IssueTrackingSystem.PracticeForWebApp.issue.IssueForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class IssueService {
     public List<IssueEntity> findAllIssues() {
         return issueRepository.findAllIssues();
     }
-    // TODO トランザクション
+    @Transactional
     public void create(String summary, String description) {
         issueRepository.insert(summary, description);
     }
